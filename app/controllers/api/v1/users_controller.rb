@@ -1,11 +1,13 @@
 class Api::V1::UsersController < ApplicationController
   def index
-    @users = User.getAll
-    render json: @users
+    users = User.getAll
+    render json: users
   end
 
   def user_list
-    @userlist = User.limit(params[:amount])
-    render json: @userlist
+    userList = User.limit(params[:amount].to_i)
+    pageCount = User.count / params[:amount].to_i
+    dataSent = [userList,pageCount]
+    render json: dataSent
   end
 end
