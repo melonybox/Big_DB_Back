@@ -8,12 +8,12 @@ This is the back end portion to https://github.com/melonybox/Big_DB_Front.<br>
 Back end portion should be started first.
 
 This portion uses:<br>
-ruby
-rails
-postgresql
-activerecord
-serializers
-rack-cors
+ruby<br>
+rails<br>
+postgresql<br>
+activerecord<br>
+serializers<br>
+rack-cors<br>
 faker
 
 ## How To Start
