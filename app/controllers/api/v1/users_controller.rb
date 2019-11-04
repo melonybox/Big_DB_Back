@@ -7,8 +7,11 @@ class Api::V1::UsersController < ApplicationController
   def user_list
     userList = User.offset(params[:page].to_i*params[:amount].to_i).limit(params[:amount].to_i)
     pageCount = User.count / params[:amount].to_i
-    dataSent = [userList,pageCount,params[:page].to_i]
-    debugger
+    pageList =
+    if pageCount < 5
+      Array.new(pageCount).map.with_index { |x,idx| idx + 1 }
+    end
+    dataSent = [userList,pageCount,params[:page].to_i,pageList]
     render json: dataSent
   end
 end
