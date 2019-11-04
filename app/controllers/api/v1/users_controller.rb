@@ -10,10 +10,16 @@ class Api::V1::UsersController < ApplicationController
     pageList =
     if pageCount <= 5
       Array.new(pageCount).map.with_index { |x,idx| idx + 1 }
-    elsif params[:page].to_i+3 > pageCount
+      # if less then 5 pages total
+    elsif params[:page].to_i+1 < 3
+      Array.new(5).map.with_index { |x,idx| idx + 1 }
+      # for first 3 pages
+    elsif params[:page].to_i+4 > pageCount
       Array.new(5).map.with_index { |x,idx| ((pageCount-5)+idx)+1 }
+      # for last 3 pages
     elsif pageCount >= 5
-      # Array.new(5).map.with_index { |x,idx| ((pageCount-2)+idx)+1 }
+      Array.new(5).map.with_index { |x,idx| ((params[:page].to_i-2)+idx)+1 }
+      # for pages between first and last 3
     end
     dataSent = [userList,pageCount,params[:page].to_i,pageList]
     render json: dataSent
