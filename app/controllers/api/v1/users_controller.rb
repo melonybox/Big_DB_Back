@@ -8,8 +8,12 @@ class Api::V1::UsersController < ApplicationController
     userList = User.offset(params[:page].to_i*params[:amount].to_i).limit(params[:amount].to_i)
     pageCount = User.count / params[:amount].to_i
     pageList =
-    if pageCount < 5
+    if pageCount <= 5
       Array.new(pageCount).map.with_index { |x,idx| idx + 1 }
+    elsif params[:page].to_i+3 > pageCount
+      Array.new(5).map.with_index { |x,idx| ((pageCount-5)+idx)+1 }
+    elsif pageCount >= 5
+      # Array.new(5).map.with_index { |x,idx| ((pageCount-2)+idx)+1 }
     end
     dataSent = [userList,pageCount,params[:page].to_i,pageList]
     render json: dataSent
