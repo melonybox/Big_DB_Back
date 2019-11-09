@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def user_list
-    userList = User.offset(params[:page].to_i*params[:amount].to_i).limit(params[:amount].to_i)
+    userList = User.order('id ASC').offset(params[:page].to_i*params[:amount].to_i).limit(params[:amount].to_i)
     pageCount = User.count / params[:amount].to_i
     pageList =
     if pageCount <= 5
