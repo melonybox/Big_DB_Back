@@ -39,8 +39,6 @@ GEM
       activesupport (= 5.2.3)
       arel (>= 9.0)
     activerecord-reset-pk-sequence (0.2.1)
-    activerecord_cache (0.0.11)
-      rails (>= 4.2.1)
     activestorage (5.2.3)
       actionpack (= 5.2.3)
       activerecord (= 5.2.3)
@@ -59,7 +57,7 @@ GEM
     case_transform (0.2)
       activesupport
     concurrent-ruby (1.1.5)
-    crass (1.0.4)
+    crass (1.0.5)
     erubi (1.8.0)
     faker (2.3.0)
       i18n (~> 1.6.0)
@@ -74,7 +72,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.2.3)
+    loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -88,7 +86,7 @@ GEM
     minitest (5.11.3)
     msgpack (1.3.1)
     nio4r (2.5.1)
-    nokogiri (1.10.4)
+    nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
     pg (1.1.4)
     puma (3.12.1)
@@ -150,7 +148,6 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   activerecord-reset-pk-sequence
-  activerecord_cache
   bcrypt
   bootsnap (>= 1.1.0)
   byebug
