@@ -22,7 +22,15 @@ class Api::V1::UsersController < ApplicationController
       Array.new(5).map.with_index { |x,idx| ((params[:page].to_i-2)+idx)+1 }
       # for pages between first and last 3
     end
-    dataSent = [userList,pageCount,params[:page].to_i,pageList]
+    dataSent =
+    {
+    loadedList: userList,
+    viewCount: params[:amount],
+    currPage: params[:page].to_i,
+    pageList: pageList,
+    listSortType: params[:type],
+    listSortOrder: params[:order]
+    }
     render json: dataSent
   end
 end
